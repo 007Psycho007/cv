@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="w3-row-padding">
+
+    <!-- Left Column -->
+    <div class="w3-third">
+        {% include "resume/includes/overview.html" with profile=profile %}
+        <br>
+        {% include "resume/includes/skills.html" with skills=skills %}
+    </div>
+    <div class="w3-twothird">
+        {% include "resume/includes/work.html" with work=work%}
+        <br>
+        {% include "resume/includes/education.html" with education=education %}
+    </div>
+</div>
+{% endblock content %}

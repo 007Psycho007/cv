@@ -1,0 +1,19 @@
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Work Experience</h2>
+
+    {% for item in work %}
+    <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{ item.title }}, <span class="w3-text-blue">{{ item.location }}</span></b></h5>
+        {% if item.current %}
+            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{% if item.show_only_year %}{{ item.time_begin.year }}{% else %}{{ item.time_begin }}{% endif %} - <span class="w3-tag w3-blue w3-round">Current</span></h6>
+        {% elif item.internship %}
+        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ item.time_begin.year }} <span class="w3-tag w3-blue w3-round">Internship</span></h6>
+        {% else %}
+            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{% if item.show_only_year %}{{ item.time_begin.year }}{% else %}{{ item.time_begin }}{% endif %} - {% if item.show_only_year %}{{ item.time_end.year }}{% else %}{{ item.time_end }}{% endif %} </h6>
+        {% endif %}
+        <p>{{ item.description }}</p>
+        <hr>
+    </div>
+    {% endfor %}
+
+</div>
